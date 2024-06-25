@@ -18,9 +18,9 @@ function changeSlide(direction) {
 }
 
 // Auto slide functionality (optional)
-setInterval(() => {
-    changeSlide(1);
-}, 5000); // Change image every 3 seconds
+// setInterval(() => {
+    // changeSlide(1);
+// }, 5000); // Change image every 3 seconds
 
 // Initialize the first slide
 showSlide(currentSlide);
