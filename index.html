@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary Note</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: #FFECF0;
+             /* Make the body the reference point for absolute positioning */
+        }
+        .flex {
+            display: flex;
+            height: 100%;
+        }
+        .top-right {
+            position: absolute;
+            margin: 24px;
+            margin-right: 30px;
+            top: 0;
+            right: 0;
+        }
+        .flex {
+            position: relative; /* Make this element the reference for absolute positioning */
+        }
+        .profile {
+            position: absolute;
+            top: 160px;
+            right: 200px;
+        }
+        .button-container {
+            top: 450px;
+            right: 140px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: absolute;
+        }
+        .btn {
+           height: 72px;
+            border: none;
+            border-radius: 50px;
+            font-size: 32px;
+            color: white;
+            cursor: pointer;
+            
+            width: 302px;
+        }
+        .btn.red {
+        
+            background-color: #FF6F61;
+        }
+        .btn.blue {
+            background-color: #1E90FF;
+        }
+
+        .text {
+            padding-left: 500px;
+            font-size: 120px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            text-shadow: 4px 5px 6px rgba(237, 19, 19, 0.5); 
+            gap: 10px;
+        }
+        .text .welcome {
+            color: #FF6F61; 
+            
+        }
+        .text .diary {
+            color: #77DD77; 
+           
+        }
+        .pupleflower{
+            margin-top: 98px;
+        }
+        
+        .bottom-right {
+            font-size: 48px;
+            position: fixed; 
+            bottom: 100px; 
+            right: 200px; 
+            padding: 10px; 
+        
+        }
+
+        .link-without-border {
+            text-decoration: none; 
+            color: red
+          
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <section class="flex">
+        <div class="flex">
+            <img src="./src/image/Homepage/mainimage.png" alt="sakuraicon">
+            
+            <a href="">
+            <img src="./src/image/Homepage/profile.png" alt="profile" class="profile ">
+            </a>
+            <div class="button-container">
+                <button class="btn red">Sign in</button>
+                <button class="btn blue">Sign up</button>
+            </div>
+            
+            
+        </div>
+        
+        <img src="./src/icons/sakuraicon.png" alt="#" class="h-12 w-12 top-right">
+        
+        <div class="text flex">
+            <div class="pupleflower"><img src="./src/image/Homepage/pupleflower.png" alt=""></div>
+            <div class="content">
+                <span class="welcome ">Welcome <img src="./src/image/Homepage/rose.png" ></span>
+                <br>
+                <span class="diary"> Da'Diary Note</span>
+            </div>
+        </div>
+        <div class="bottom-right">
+            <a href="./pages/diarynote-page/index.html" class="link-without-border">Try this --> </a>
+        </div>
+    </section>
+
+
+</body>
+</html>     
