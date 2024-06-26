@@ -4,123 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Footer with Background Image</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/style/footer/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-* {
-    
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    line-height: 1.6;
-}
-
-.footer {
-    position: relative;
-    background: url('/src/image/footer/pexels-peter-5862657.jpg') no-repeat center center/cover;
-    color: #ffffff;
-    padding: 60px 0;
-}
-
-.footer-overlay {
-    background:  rgba(208, 200, 207, 0.6);
-    padding: 60px 0;
-}
-
-.footer .container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 0 20px;
-}
-
-.footer-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-}
-
-.footer-col {
-    flex: 1;
-    min-width: 250px;
-    margin: 20px 0;
-}
-
-.footer-col h4 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.footer-col p {
-    font-size: 14px;
-    line-height: 24px;
-}
-
-.social-links a {
-    margin: 0 10px;
-    color: #fff;
-    font-size: 18px;
-    transition: color 0.3s;
-}
-
-.social-links a:hover {
-    color: #ff6b6b;
-}
-
-.footer-bottom {
-    color: #000;
-    border-radius: 12px;
-    background: rgba(254, 253, 253, 0.8);
-    padding: 12px ;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-
-@media (max-width: 768px) {
-    .footer-row {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-
-    .footer-col {
-        margin: 10px 0;
-        max-width: 100%; /* Ensure columns don't exceed screen width */
-    }
-}
-.footer-col img {
-    width: 240px;  
-    height: auto;  
-    max-width: 100%;
-    display: block;
-    margin: 0 auto; 
-}
-
-.footer-content a {
-    color: white; 
-    text-decoration: none;
-    font-size: 1em;
-}
-
-.footer-content a:hover {
-    color: #000; 
-}
-
-.social-media {
-    margin-top: 10px;
-}
- 
-</style>
+    <script src="/script/components/footer.js"></script>
 </head>
 <body>
+    <div id="footer-container"></div>
     <footer class="footer">
         <div class="footer-overlay">
             <div class="container">
