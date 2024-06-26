@@ -1,5 +1,5 @@
 let currentSlide = 0;
-
+// 1
 function showSlide(index) {
     const slides = document.querySelectorAll('.slide');
     if (index >= slides.length) {
@@ -16,7 +16,6 @@ function showSlide(index) {
 function changeSlide(direction) {
     showSlide(currentSlide + direction);
 }
-
 // Auto slide functionality (optional)
 // setInterval(() => {
     // changeSlide(1);
