@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #222;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background-color: #f8d7da;
+        min-height: 100vh;
+        width: 100%;
+    }
+    
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 600px;
+        margin-bottom: 20px;
+    }
+    
+    #search {
+        width: 300px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    #new-note-btn {
+        padding: 10px 20px;
+        border: none;
+        background-color: #007bff;
+        color: #ffffff;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .notes-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        width: 100%;
+        max-width: 1440px;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .note {
+        width: calc(16.66% - 20px);
+        border: 2px solid #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+        background-color: #f9f9f9;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .note-title {
+        font-weight: bold;
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    .note-content {
+        width: 100%;
+        padding: 1px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .note-completed {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    
+    .note-completed input {
+        margin-right: 5px;
+    }
+    
+    .note-actions {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .note-actions button {
+        border: none;
+        cursor: pointer;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    
+    .note-actions .save {
+        background-color: #28a745;
+        color: #ffffff;
+    }
+    
+    .note-actions .edit {
+        background-color: #007bff;
+        color: #ffffff;
+    }
+    
+    .note-actions .delete {
+        background-color: #dc3545;
+        color: #ffffff;
+    }
+    
+    .note.completed .note-title,
+    .note.completed .note-content {
+        text-decoration: line-through;
+    }
+    
+    @media (max-width: 1200px) {
+        .note {
+            width: calc(25% - 20px);
+        }
+    }
+    
+    @media (max-width: 900px) {
+        .note {
+            width: calc(33.33% - 20px);
+        }
+    }
+    
+    @media (max-width: 600px) {
+        .note {
+            width: calc(50% - 20px);
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .note {
+            width: 100%;
+        }
+    }
+    
+    
+</style>
+<body>
+    <div class="container">
+        <div class="header">
+            <input type="text" id="search" placeholder="Search">
+            <button id="new-note-btn">New +</button>
+        </div>
+        <div id="notes-container" class="notes-container"></div>
+    </div>
+    <script >
+        document.addEventListener('DOMContentLoaded', () => {
+            const newNoteBtn = document.getElementById('new-note-btn');
+            const notesContainer = document.getElementById('notes-container');
+            const searchInput = document.getElementById('search');
+        
+            newNoteBtn.addEventListener('click', () => {
+                const note = createNote();
+                notesContainer.appendChild(note);
+            });
+        
+            searchInput.addEventListener('input', () => {
+                const query = searchInput.value.toLowerCase();
+                const notes = notesContainer.querySelectorAll('.note');
+                notes.forEach(note => {
+                    const title = note.querySelector('.note-title').value.toLowerCase();
+                    const content = note.querySelector('.note-content').value.toLowerCase();
+                    if (title.includes(query) || content.includes(query)) {
+                        note.style.display = 'block';
+                    } else {
+                        note.style.display = 'none';
+                    }
+                });
+            });
+        
+            function createNote() {
+                const note = document.createElement('div');
+                note.classList.add('note');
+        
+                const titleInput = document.createElement('input');
+                titleInput.placeholder = 'Title';
+                titleInput.classList.add('note-title');
+                
+                const noteContent = document.createElement('textarea');
+                noteContent.placeholder = 'Write your note here...';
+                noteContent.classList.add('note-content');
+        
+                const noteCompleted = document.createElement('div');
+                noteCompleted.classList.add('note-completed');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                noteCompleted.appendChild(checkbox);
+                noteCompleted.appendChild(document.createTextNode('Completed'));
+        
+                checkbox.addEventListener('change', () => {
+                    if (checkbox.checked) {
+                        note.classList.add('completed');
+                    } else {
+                        note.classList.remove('completed');
+                    }
+                });
+        
+                const actions = document.createElement('div');
+                actions.classList.add('note-actions');
+        
+                const saveBtn = document.createElement('button');
+                saveBtn.textContent = 'Save';
+                saveBtn.classList.add('save');
+        
+                const editBtn = document.createElement('button');
+                editBtn.textContent = 'Edit';
+                editBtn.classList.add('edit');
+                editBtn.style.display = 'none';
+        
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Delete';
+                deleteBtn.classList.add('delete');
+        
+                saveBtn.addEventListener('click', () => {
+                    titleInput.disabled = true;
+                    noteContent.disabled = true;
+                    saveBtn.style.display = 'none';
+                    editBtn.style.display = 'inline';
+                });
+        
+                editBtn.addEventListener('click', () => {
+                    titleInput.disabled = false;
+                    noteContent.disabled = false;
+                    saveBtn.style.display = 'inline';
+                    editBtn.style.display = 'none';
+                });
+        
+                deleteBtn.addEventListener('click', () => {
+                    notesContainer.removeChild(note);
+                });
+        
+                actions.appendChild(saveBtn);
+                actions.appendChild(editBtn);
+                actions.appendChild(deleteBtn);
+        
+                note.appendChild(titleInput);
+                note.appendChild(noteContent);
+                note.appendChild(noteCompleted);
+                note.appendChild(actions);
+        
+                return note;
+            }
+        });
+        
+    </script>
+</body>
+</html>

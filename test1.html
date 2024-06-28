@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-item {
+            margin: 10px 0;
+        }
+        
+        .main-content {
+            background-color: #f8d7da;
+            padding: 20px;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        .search-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .search-container input {
+            padding: 5px;
+            margin-right: 10px;
+        }
+        
+        .new-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .note {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .note input, .note textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .note-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .edit-button, .delete-button {
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .edit-button {
+            background-color: #28a745;
+            color: white;
+        }
+        
+        .delete-button {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .completed-checkbox {
+            margin-top: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+        
+            .sidebar {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        
+            .main-content {
+                width: 100%;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar-item">User can add the title of the note</div>
+            <div class="sidebar-item">User can write the note here</div>
+            <div class="sidebar-item">Completed</div>
+        </div>
+        <div class="main-content">
+            <h1>My Notes</h1>
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search">
+                <button onclick="searchNotes()">🔍</button>
+            </div>
+            <button class="new-button" onclick="createNewNote()">New +</button>
+            <div id="notes-container"></div>
+        </div>
+    </div>
+    <script>
+        function createNewNote() {
+            const notesContainer = document.getElementById('notes-container');
+        
+            const noteDiv = document.createElement('div');
+            noteDiv.className = 'note';
+        
+            const noteTitle = document.createElement('input');
+            noteTitle.type = 'text';
+            noteTitle.placeholder = 'Title';
+        
+            const noteContent = document.createElement('textarea');
+            noteContent.placeholder = 'Write your note here...';
+        
+            const noteActions = document.createElement('div');
+            noteActions.className = 'note-actions';
+        
+            const editButton = document.createElement('button');
+            editButton.className = 'edit-button';
+            editButton.textContent = 'Edit';
+            editButton.onclick = () => alert('Edit note functionality will be implemented here.');
+        
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-button';
+            deleteButton.textContent = 'Delete';
+            deleteButton.onclick = () => {
+                if (confirm('Are you sure you want to delete this note?')) {
+                    notesContainer.removeChild(noteDiv);
+                }
+            };
+        
+            const completedCheckbox = document.createElement('div');
+            completedCheckbox.className = 'completed-checkbox';
+        
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = 'completed';
+        
+            completedCheckbox.appendChild(checkbox);
+            completedCheckbox.appendChild(document.createTextNode(' Completed'));
+        
+            noteActions.appendChild(editButton);
+            noteActions.appendChild(deleteButton);
+        
+            noteDiv.appendChild(noteTitle);
+            noteDiv.appendChild(noteContent);
+            noteDiv.appendChild(noteActions);
+            noteDiv.appendChild(completedCheckbox);
+        
+            notesContainer.appendChild(noteDiv);
+        }
+        
+        function searchNotes() {
+            let searchTerm = document.getElementById('search').value.toLowerCase();
+            alert(`Searching for notes containing: ${searchTerm}`);
+        }
+        
+    </script>
+</body>
+</html>
