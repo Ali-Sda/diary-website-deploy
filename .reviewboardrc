@@ -1,0 +1,5 @@
+REVIEWBOARD_URL = "https://review.clp.kr"
+REPOSITORY = "AlphaBeez/Panha-Phosda/Diary Website Phosda"
+REPOSITORY_TYPE = "git"
+BRANCH = "develop"
+LAND_DEST_BRANCH = "develop"
