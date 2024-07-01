@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d0e8a4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .new-btn, .search-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .note-list {
+            margin-top: 20px;
+        }
+
+        .note {
+            background: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 10px;
+            position: relative;
+        }
+
+        .note.completed {
+            background: #d0ffd0;
+        }
+
+        .note .actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .note .edit-btn, .note .delete-btn {
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .note .edit-btn {
+            background-color: #00aaff;
+            color: white;
+        }
+
+        .note .delete-btn {
+            background-color: #ff5c5c;
+            color: white;
+        }
+
+        .note input, .note textarea {
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .note input[type="color"] {
+            width: 40px;
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+
+        .view-modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .view-modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <button id="new-btn" class="new-btn">New</button>
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search">
+            <button id="search-btn" class="search-btn">🔍</button>
+        </div>
+        <div class="note-list" id="note-list"></div>
+    </div>
+    <div id="view-modal" class="view-modal">
+        <div class="view-modal-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <h2>View Details</h2>
+            <p id="view-title"></p>
+            <p id="view-date"></p>
+            <p id="view-note"></p>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const newBtn = document.getElementById('new-btn');
+            const noteList = document.getElementById('note-list');
+            const searchBar = document.getElementById('search-bar');
+            const searchBtn = document.getElementById('search-btn');
+            const calendarIcon = document.getElementById('calendar-icon');
+            const viewModal = document.getElementById('view-modal');
+            const closeBtn = document.getElementById('close-btn');
+
+            let notes = [];
+
+            const renderNotes = (notesToRender) => {
+                noteList.innerHTML = '';
+                notesToRender.forEach(note => {
+                    const noteElement = document.createElement('div');
+                    noteElement.classList.add('note');
+                    if (note.completed) noteElement.classList.add('completed');
+                    noteElement.style.backgroundColor = note.color;
+                    noteElement.innerHTML = `
+                        <input type="text" value="${note.title}" placeholder="Title">
+                        <input type="date" value="${note.date}">
+                        <textarea placeholder="Note">${note.content}</textarea>
+                        <input type="color" value="${note.color}">
+                        <div class="actions">
+                            <button class="edit-btn">Save</button>
+                            <input type="checkbox" ${note.completed ? 'checked' : ''}> Completed
+                            <button class="delete-btn">Delete</button>
+                        </div>
+                    `;
+
+                    const titleInput = noteElement.querySelector('input[type="text"]');
+                    const dateInput = noteElement.querySelector('input[type="date"]');
+                    const noteTextarea = noteElement.querySelector('textarea');
+                    const colorInput = noteElement.querySelector('input[type="color"]');
+                    const editBtn = noteElement.querySelector('.edit-btn');
+                    const deleteBtn = noteElement.querySelector('.delete-btn');
+                    const completedCheckbox = noteElement.querySelector('input[type="checkbox"]');
+
+                    editBtn.addEventListener('click', () => {
+                        note.title = titleInput.value;
+                        note.date = dateInput.value;
+                        note.content = noteTextarea.value;
+                        note.color = colorInput.value;
+                        renderNotes(notes);
+                    });
+
+                    deleteBtn.addEventListener('click', () => {
+                        notes = notes.filter(n => n !== note);
+                        renderNotes(notes);
+                    });
+
+                    completedCheckbox.addEventListener('change', () => {
+                        note.completed = completedCheckbox.checked;
+                        renderNotes(notes);
+                    });
+
+                    noteList.appendChild(noteElement);
+                });
+            };
+
+            newBtn.addEventListener('click', () => {
+                notes.push({
+                    title: '',
+                    date: '',
+                    content: '',
+                    completed: false,
+                    color: '#f9f9f9'
+                });
+                renderNotes(notes);
+            });
+
+            searchBtn.addEventListener('click', () => {
+                const query = searchBar.value.toLowerCase();
+                const filteredNotes = notes.filter(note =>
+                    note.title.toLowerCase().includes(query) ||
+                    note.content.toLowerCase().includes(query)
+                );
+                renderNotes(filteredNotes);
+            });
+
+            closeBtn.addEventListener('click', () => {
+                viewModal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target == viewModal) {
+                    viewModal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
