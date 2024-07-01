@@ -1,8 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const menuToggle = document.querySelector(".menu-toggle");
-    const navLinks = document.querySelector(".nav-links");
+    const headerContainer = document.getElementById("header-container");
 
-    menuToggle.addEventListener("click", function() {
-        navLinks.classList.toggle("active");
-    });
+    const headerHTML = `
+    div class="header"> 
+        <a href="">
+            <img src="/src/icons/arrowsleft.png" alt="" class="arrow-left">
+        </a>
+        <h1>Diary Note 
+            <a href="/index.html">
+                <img src="/src/image/Diarynote-page/homeicon.png" alt="home" class="home-icon">
+            </a>
+        </h1>
+        <a href="#">
+            <img src="/src/icons/arrowsright.png" alt="" class="arrow-right">
+        </a>
+    </div>
+    `;
+    headerContainer.innerHTML = headerHTML;
 });

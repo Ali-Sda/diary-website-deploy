@@ -19,56 +19,18 @@ body {
             justify-content: center;
             
 }
-
-.slider {
-    position: relative;
-    width: 100%;
-    max-width: 1920px;
-    overflow: hidden;
-    
-    
-}
-
-.slides {
+.image{
+    flex-wrap: wrap;
     display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide {
-    min-width: 100%;
-    box-sizing: border-box;
-}
-
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(10%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-    user-select: none;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
 }
 
 .diary{
-    font-size: 50px;
+    font-size: 35px;
     text-align: center;
 }
 .diary1{
-    font-size: 48px;
+    font-size: 20px;
 }
-
 
     </style>
 </head>
@@ -78,50 +40,19 @@ body {
             <h1 class="diary">Diary Note 
                 <a href="/index.html">
                 <img src="/src/image/Diarynote-page/homeicon.png" alt="home"></h1></a>
-        
-        <div class="slider">
-            <div class="slides">
-                <div class="slide"><img src="/src/image/Diarynote-page/diarynoteimg1.png" alt="Image 1"></div>
-                <div class="slide"><img src="/src/image/Diarynote-page/girl.png" alt="Image 2"></div>
-                <div class="slide"><img src="image3.jpg" alt="Image 3"></div>
-            </div>
-            <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="next" onclick="changeSlide(1)">&#10095;</button>
-        </div>
         </div>
 <!-- My Notes -->
         <section>
-            <div>
-                <h1 class="diary1">My Notes</h1>
+            <div class="image">
+                <img src="/src/image/Diarynote-page/Chihiro.png" alt="">
+                
             </div>
+
             
-
-
-
-
+            <div id="footer-container"></div>
         </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id="footer-container"></div>
-
     </section>
     
-    
-   
-
-
 
 </body>
 </html>          
