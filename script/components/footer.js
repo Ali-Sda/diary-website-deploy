@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const footerContainer = document.getElementById("footer-container");
 
-    const footerHTML = `
+    const footerHTML = ` <link rel="stylesheet" href="/style/footer/footer.css">
         <footer class="footer">
             <div class="footer-overlay">
                 <div class="container">
@@ -35,4 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     `;
 
     footerContainer.innerHTML = footerHTML;
+    
+    document.head.appendChild(style);
+
 });

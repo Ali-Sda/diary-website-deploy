@@ -3,33 +3,33 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 6vh;
     background: white; /* Optional: makes the background of the entire page white */
 }
 .header {
-    background: linear-gradient(to right, pink, skyblue);
+    background: #FFC7C7;
     width: 100%;
-    max-width: 1920px;
-
-    border-radius: 10px;
+    max-width: 2000px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: adds a shadow */
     position: relative;
     text-align: center;
 }
 .header img {
-    width: 35px;
+    width: 30px;
 }
 .arrow-left {
     position: absolute;
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
+    padding-left: 40px;
 }
 .arrow-right {
     position: absolute;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
+    padding-right: 40px;
 }
 .home-icon {
     display: inline-block;

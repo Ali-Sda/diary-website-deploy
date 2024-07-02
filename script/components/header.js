@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const headerContainer = document.getElementById("header-container");
 
     const headerHTML = `
-    div class="header"> 
+    <div class="header"> 
         <a href="">
             <img src="/src/icons/arrowsleft.png" alt="" class="arrow-left">
         </a>
