@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/script/diarynote-page/index.js"></script>
-    <title>Diary Note</title>
+    <title>Responsive Design</title>
     <style>
         body, html {
-            line-height: 1.9;
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
@@ -16,66 +14,62 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: #f0f0f0;
         }
 
         .container {
             position: relative;
             text-align: center;
-            background: url('/src/image/Homepage/SCmYnp.jpg') no-repeat center center;
+            background: url('/src/image/Homepage/cover.jpg') no-repeat center center;
             background-size: cover;
-            height: 100%;  
+            min-height: 100vh;  
             width: 100%;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-               /* background: #000;     */
-            /align-items: center; */
+            align-items: center;
         }
 
         .content {
-           
-            /* text-align: center; */
-            padding-top: 200px;
-            
-            
+            text-align: center; 
+            padding-top: 20px;
         }
+
         .profile-image img {
-            width: 415px; /* Adjust as needed */
-            height: 392px; /* Adjust as needed */
+            width: 300px; /* Adjust as needed */
+            height: auto; /* Maintain aspect ratio */
             transition: filter 0.3s ease;
+            padding-top: 20px;
         }
 
         .profile-image img:hover {
             filter: drop-shadow(0px 0px 100px rgb(159, 228, 255));
         }
+
         .profile-image img {
             filter: drop-shadow(0px 0px 30px rgb(255, 0, 0));
         }
 
         .welcome-message {
-
             background-color: rgba(66, 171, 242, 0.5);
-            
             padding: 20px;
-            margin-top: 1px;
+            margin-top: 20px;
             border-radius: 10px;
             display: inline-block;
             color: aliceblue;
             cursor: pointer;
-            transition: filter 0.3s ease ease-in-out;
-
-        }
-        .welcome-message {
+            transition: filter 0.3s ease-in-out;
             filter: drop-shadow(0px 0px 30px rgb(242, 192, 192));
         }
-        .welcome-message :hover{
+
+        .welcome-message:hover {
             filter: drop-shadow(0px 0px 2px rgb(210, 147, 150));
         }
-        
+
         .welcome-message h1 {
-            
             display: flex;
             align-items: center;
-            
+            font-size: 24px;
         }
 
         .welcome-message img {
@@ -96,55 +90,57 @@
             border-radius: 20px;
             cursor: pointer;
             font-size: 16px;
+            transition: background-color 0.3s ease, filter 0.3s ease;
         }
 
         .buttons button:hover {
             filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
             background-color: #ff0000;
         }
-        .try-it a{
-            padding: 300px;
+
+        .try-it a {
             font-size: 30px;
-            color:red;
+            color: red;
             cursor: pointer;
-            transition: filter 0.3s ease ease-in-out;
+            transition: filter 0.3s ease-in-out;
+            text-decoration: none;
         }
-        .try-it a:hover{
+
+        .try-it a:hover {
             filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
         }
-            
 
         @media (max-width: 480px) {
             .profile-image img {
-                width: 90px;
-                height: 90px;
+                width: 150px;
+                height: auto;
             }
 
             .welcome-message {
-                padding: 1px;
+                padding: 10px;
+                margin-top: 10px;
             }
 
             .welcome-message h1 {
-                font-size: 16px;
+                font-size: 18px;
             }
 
             .buttons button {
-                padding: 6px 12px;
-                font-size: 12px;
+                padding: 8px 20px;
+                font-size: 14px;
             }
 
             .container {
-                height: 100vh;
-                width: 100vw;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                box-sizing: border-box;
+                min-height: 100vh;
+                padding: 20px;
             }
 
             .content {
-                padding-top: 0;
+                padding-top: 10px;
+            }
+
+            .try-it a {
+                font-size: 20px;
             }
         }
     </style>
@@ -156,7 +152,7 @@
                 <img src="/src/icons/profile.png" alt="Profile">
             </div>
             <div class="try-it">
-                <a href=""><p>Try this</p></a>
+                <a href="#"><p>Try this</p></a>
             </div>
             <div>
                 <h1 class="welcome-message">Welcome Da'Diary Note <img src="/src/icons/sakuraicon.png" alt="Sakura Icon"></h1>
@@ -167,14 +163,5 @@
             </div>
         </div>
     </div>
-    <script>
-        function signIn() {
-            // Your sign-in logic here
-        }
-
-        function signOut() {
-            // Your sign-out logic here
-        }
-    </script>
 </body>
 </html>

@@ -3,39 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/script/diarynote-page/index.js"></script>
-    <link rel="icon" type="image/x-icon" href="/src/icons/">
+    
+    <!-- External JavaScript files -->
     <script src="/script/components/footer.js"></script>
+    <script src="/script/components/header.js"></script> 
+
+    <!-- External CSS files -->
+    <link rel="stylesheet" href="/style/header/header.css">
     <!-- <link rel="stylesheet" href="/style/diarynote-page/diarynote.css"> -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/src/icons/favicon.ico">
 
+    <!-- Page title -->
     <title>Diary Note</title>
+
+    <!-- Internal CSS for layout -->
     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 200vh; /* Adjusted to 100vh */
+        }
 
+        section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /*justify-content: center;*/
+            /*padding: 20px;*/
+            box-sizing: border-box;
+        }
 
+        .image-container, .quote-image-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
 
+        .image-container img, .quote-image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            .image-container img, .quote-image-container img {
+                width: 90%; /* Adjusted for smaller screens */
+            }
+        }
     </style>
 </head>
-
-    
-    
 <body>
-<!--  -->
-<section>
-    <div>
+    <!-- Header Section -->
+    <header class="header"> 
+        <a href="#">
+            <img src="/src/icons/arrowsleft.png" alt="Left Arrow" class="arrow-left">
+        </a>
+        <h1>Diary Note 
+            <a href="/index.html">
+                <img src="/src/image/Diarynote-page/homeicon.png" alt="Home" class="home-icon">
+            </a>
+        </h1>
+        <a href="#">
+            <img src="/src/icons/arrowsright.png" alt="Right Arrow" class="arrow-right">
+        </a>
+    </header>
+
+    <!-- Main Content Section -->
+    <section>
+        <!-- Image Container -->
+        <div class="image-container">
+            <img src="/src/image/Diarynote-page/welcome cover.png" alt="Welcome Cover" class="main-image">
+        </div>
+
+
+
+
         
-    </div>
-    <div>
-        <img src="/src/image/Diarynote-page/welcome cover.png" alt="#">
-    </div>
-</section>
-<div id="footer-container"></div>
+        <!-- Quote Image Section -->
+        <div class="quote-image-container">
+            
+            <img src="/src/image/Homepage/qoutesection.png" alt="Quote Section" class="quote-image">
+        </div>
+        
+            
+    </section>
+    <div id="footer-container"></div> 
+        
 
-
-
-
-
-
-
-
+    <!-- Footer Section (if applicable) -->
+     <!-- <div id="footer-container"></div>  -->
 </body>
-</html>          
+</html>
+
+
+
+
