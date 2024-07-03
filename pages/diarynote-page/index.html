@@ -7,9 +7,11 @@
     <!-- External JavaScript files -->
     <script src="/script/components/footer.js"></script>
     <script src="/script/components/header.js"></script> 
+    <link rel="stylesheet" href="/style/diarynote-page/diarynote.css">
 
     <!-- External CSS files -->
     <link rel="stylesheet" href="/style/header/header.css">
+
     <!-- <link rel="stylesheet" href="/style/diarynote-page/diarynote.css"> -->
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/src/icons/favicon.ico">
@@ -18,52 +20,12 @@
     <title>Diary Note</title>
 
     <!-- Internal CSS for layout -->
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            min-height: 200vh; /* Adjusted to 100vh */
-        }
-
-        section {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /*justify-content: center;*/
-            /*padding: 20px;*/
-            box-sizing: border-box;
-        }
-
-        .image-container, .quote-image-container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 20px 0;
-        }
-
-        .image-container img, .quote-image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        @media (max-width: 600px) {
-            .image-container img, .quote-image-container img {
-                width: 90%; /* Adjusted for smaller screens */
-            }
-        }
-    </style>
+    
 </head>
 <body>
     <!-- Header Section -->
     <header class="header"> 
-        <a href="#">
+        <a href="/index.html">
             <img src="/src/icons/arrowsleft.png" alt="Left Arrow" class="arrow-left">
         </a>
         <h1>Diary Note 
@@ -82,9 +44,28 @@
         <div class="image-container">
             <img src="/src/image/Diarynote-page/welcome cover.png" alt="Welcome Cover" class="main-image">
         </div>
-
-
-
+<!-- add -->
+<div class="container">
+    <div class="header">
+        <button id="new-btn" class="new-btn">
+            New
+            <img src="/src/icons/addnewicon.png" alt="New Note">
+        </button>
+        <input type="text" id="search-bar" class="search-bar" placeholder="Search">
+        <button id="view-all-btn" class="view-all-btn">
+            <img src="/src/icons/viewallnote.png" alt="View All Notes">
+        </button>
+    </div>
+    <div class="note-list" id="note-list"></div>
+</div>
+<div id="view-modal" class="view-modal">
+    <div class="view-modal-content">
+        <span id="close-btn" class="close-btn">&times;</span>
+        <h2>All Notes</h2>
+        <button id="delete-all-btn" class="delete-all-btn">Delete All Notes</button>
+        <div id="all-notes"></div>
+    </div>
+</div>
 
         
         <!-- Quote Image Section -->
@@ -95,12 +76,13 @@
         
             
     </section>
-    <div id="footer-container"></div> 
+    <!-- <div id="footer-container"></div>  -->
         
 
     <!-- Footer Section (if applicable) -->
      <!-- <div id="footer-container"></div>  -->
 </body>
+<script src="/script/diarynote-page/index.js"></script>
 </html>
 
 
