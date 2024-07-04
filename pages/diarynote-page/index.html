@@ -3,27 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- External JavaScript files -->
-    <script src="/script/components/footer.js"></script>
-    <script src="/script/components/header.js"></script> 
     <link rel="stylesheet" href="/style/diarynote-page/diarynote.css">
-
-    <!-- External CSS files -->
     <link rel="stylesheet" href="/style/header/header.css">
-
-    <!-- <link rel="stylesheet" href="/style/diarynote-page/diarynote.css"> -->
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="/src/icons/favicon.ico">
-
-    <!-- Page title -->
-    <title>Diary Note</title>
-
-    <!-- Internal CSS for layout -->
-    
+    <link rel="icon" type="image/x-icon" href="/src/icons/sakuraicon.png">
+    <title>Da'Diary Note </title>
 </head>
 <body>
-    <!-- Header Section -->
+<!-- Header Section -->
     <header class="header"> 
         <a href="/index.html">
             <img src="/src/icons/arrowsleft.png" alt="Left Arrow" class="arrow-left">
@@ -38,14 +24,17 @@
         </a>
     </header>
 
-    <!-- Main Content Section -->
+<!-- Main Content Section -->
     <section>
         <!-- Image Container -->
         <div class="image-container">
             <img src="/src/image/Diarynote-page/welcome cover.png" alt="Welcome Cover" class="main-image">
         </div>
-<!-- add -->
+<!-- Note section -->
 <div class="container">
+    <div class="yournote">
+        <h1>Your Note </h1>
+    </div>
     <div class="header">
         <button id="new-btn" class="new-btn">
             New
@@ -66,25 +55,16 @@
         <div id="all-notes"></div>
     </div>
 </div>
-
-        
-        <!-- Quote Image Section -->
-        <div class="quote-image-container">
-            
-            <img src="/src/image/Homepage/qoutesection.png" alt="Quote Section" class="quote-image">
+ <!-- Container for quote image -->
+<div class="footer-container">
+            <div id="footer-container"></div>
         </div>
-        
-            
     </section>
-    <!-- <div id="footer-container"></div>  -->
-        
-
-    <!-- Footer Section (if applicable) -->
-     <!-- <div id="footer-container"></div>  -->
 </body>
-<script src="/script/diarynote-page/index.js"></script>
+<!-- Scripts -->
+<script src="/script/diarynote-components/index.js"></script>
+<script src="/script/components/footer.js"></script>
 </html>
-
 
 
 

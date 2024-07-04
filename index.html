@@ -3,162 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Design</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            position: relative;
-            text-align: center;
-            background: url('/src/image/Homepage/cover.jpg') no-repeat center center;
-            background-size: cover;
-            min-height: 100vh;  
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .content {
-            text-align: center; 
-            padding-top: 20px;
-        }
-
-        .profile-image img {
-            width: 300px; /* Adjust as needed */
-            height: auto; /* Maintain aspect ratio */
-            transition: filter 0.3s ease;
-            padding-top: 20px;
-        }
-
-        .profile-image img:hover {
-            filter: drop-shadow(0px 0px 100px rgb(159, 228, 255));
-        }
-
-        .profile-image img {
-            filter: drop-shadow(0px 0px 30px rgb(255, 0, 0));
-        }
-
-        .welcome-message {
-            background-color: rgba(66, 171, 242, 0.5);
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 10px;
-            display: inline-block;
-            color: aliceblue;
-            cursor: pointer;
-            transition: filter 0.3s ease-in-out;
-            filter: drop-shadow(0px 0px 30px rgb(242, 192, 192));
-        }
-
-        .welcome-message:hover {
-            filter: drop-shadow(0px 0px 2px rgb(210, 147, 150));
-        }
-
-        .welcome-message h1 {
-            display: flex;
-            align-items: center;
-            font-size: 24px;
-        }
-
-        .welcome-message img {
-            margin-left: 10px;
-            height: 45px;
-        }
-
-        .buttons {
-            margin-top: 30px;
-        }
-
-        .buttons button {
-            background-color: #ff3e3e;
-            color: white;
-            border: none;
-            padding: 10px 45px;
-            margin: 0 10px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease, filter 0.3s ease;
-        }
-
-        .buttons button:hover {
-            filter: drop-shadow(0px 0px 10px rgb(255, 255, 255));
-            background-color: #ff0000;
-        }
-
-        .try-it a {
-            font-size: 30px;
-            color: red;
-            cursor: pointer;
-            transition: filter 0.3s ease-in-out;
-            text-decoration: none;
-        }
-
-        .try-it a:hover {
-            filter: drop-shadow(0px 0px 5px rgb(255, 255, 255));
-        }
-
-        @media (max-width: 480px) {
-            .profile-image img {
-                width: 150px;
-                height: auto;
-            }
-
-            .welcome-message {
-                padding: 10px;
-                margin-top: 10px;
-            }
-
-            .welcome-message h1 {
-                font-size: 18px;
-            }
-
-            .buttons button {
-                padding: 8px 20px;
-                font-size: 14px;
-            }
-
-            .container {
-                min-height: 100vh;
-                padding: 20px;
-            }
-
-            .content {
-                padding-top: 10px;
-            }
-
-            .try-it a {
-                font-size: 20px;
-            }
-        }
-    </style>
+    <link rel="icon" type="sakuraicon" href="/src/icons/sakuraicon.png">
+    <link rel="stylesheet" href="/style/homepage/homepage.css">
+    <title>Da'Diary Note</title>
 </head>
 <body>
+    <!-- Main container for the webpage -->
     <div class="container">
+        <!-- Content section -->
         <div class="content">
+            <!-- Profile image link to about page -->
             <div class="profile-image">
-                <img src="/src/icons/profile.png" alt="Profile">
+                <a href="/pages/about/about.html"><img src="/src/icons/profile.png" alt="Profile"></a>
             </div>
+            <!-- Link to the diary note page -->
             <div class="try-it">
                 <a href="/pages/diarynote-page/"><p>Try this</p></a>
             </div>
+            <!-- Welcome message and links to sign-in and sign-out pages -->
             <div>
-                <h1 class="welcome-message">Welcome Da'Diary Note <img src="/src/icons/sakuraicon.png" alt="Sakura Icon"></h1>
+                <a href="/pages/about/about.html">
+                    <h1 class="welcome-message">Welcome Da'Diary Note <img src="/src/icons/sakuraicon.png" alt="Sakura Icon"></h1>
+                </a>
                 <div class="buttons">
-                    <a href="/pages/signin/signin.html"><button >Sign in</button></a>
-                    <a href="/pages/signout/signout.html"><button>Sign out</button> 
+                    <a href="/pages/signin/signin.html"><button>Sign in</button></a>
+                    <a href="/pages/signout/signout.html"><button>Sign out</button></a>
                 </div>
             </div>
         </div>
