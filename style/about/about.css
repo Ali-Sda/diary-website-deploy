@@ -91,3 +91,21 @@ footer {
         font-size: 1rem;
     }
 }
+/* Existing styles for other elements */
+
+/* Existing styles for other elements */
+
+@media (max-width: 900px) {
+    footer {
+        display: none;
+     
+    }
+}
+
+
+
+/*
+   Styles for a responsive about page layout, including a fixed background image,
+   semi-transparent headers and footers for readability, centered content sections,
+   and media queries for smaller screens.
+*/

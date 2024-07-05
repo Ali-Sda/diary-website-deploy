@@ -5,24 +5,6 @@ body {
     align-items: center;
     background: white; /* Optional: makes the background of the entire page white */
 }
-
-    /* color: white;
-    background: #FFC7C7;
-    width: 100%;
-    max-width: 2000px;
-    box-shadow: 0 0 10px rgba(9, 9, 9, 0.1); /* Optional: adds a shadow */
-    /* position: relative;
-    text-align: center;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    z-index: 1000; */
-     
-    
- 
-/* .header h1 {
-    margin: 0;
-} */
  .header img {
     width: 30px;
 } 
@@ -51,7 +33,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: white; /* Optional: makes the background of the entire page white */
+    background: white; 
 }
 .header {
     

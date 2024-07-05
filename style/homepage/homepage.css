@@ -29,8 +29,8 @@ body, html {
 }
 
 .profile-image img {
-    width: 300px; /* Adjust as needed */
-    height: auto; /* Maintain aspect ratio */
+    width: 300px; 
+    height: auto; 
     transition: filter 0.3s ease;
     padding-top: 20px;
 }
@@ -136,3 +136,5 @@ body, html {
         font-size: 20px;
     }
 }
+
+/* This CSS code styles the body and HTML to be full height and width, centered, with a light gray background. A container with a full-screen background image centers its contents, including profile images with hover effects, a semi-transparent welcome message, and styled buttons. The design is responsive, adjusting image sizes, padding, and text sizes for smaller screens. */

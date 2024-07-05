@@ -1,5 +1,4 @@
-
-       
+/* General styles for the body and containers */     
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -17,10 +16,11 @@
             width: 100%;
             max-width: 2500px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+           
         }
 
         
-
+/* Header styles */
         .header {
             
             width: 100%;
@@ -74,6 +74,7 @@
             border: 1px solid #ffffff;
         }
 
+/* Note list styles */
         .note-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -81,6 +82,7 @@
             margin-top: 20px;
             padding: 10px;
         }
+
 
         .note {
             background: #f9f9f9;
@@ -161,6 +163,8 @@
             display: none;
         }
 
+/* Modal styles */
+
         .view-modal {
             display: none;
             position: fixed;
@@ -212,12 +216,12 @@
         }
 
         .delete-all-btn {
-            background-color: #ff5c5c; /* Red background */
-            border: 1px solid #ff5c5c; /* Red border */
+            background-color: #ff5c5c; 
+            border: 1px solid #ff5c5c; 
             border-radius: 50px; /* Rounded corners */
-            padding: 10px; /* Increased padding */
-            color: white; /* Text color */
-            cursor: pointer; /* Pointer cursor */
+            padding: 10px; 
+            color: white; 
+            cursor: pointer; 
             margin-bottom: 12px;
         }
 
@@ -239,17 +243,11 @@
         flex: 1;
         display: flex;
         flex-direction: column;
-        /* align-items: center; */
-        /*justify-content: center;*/
-        /*padding: 20px;*/
         box-sizing: border-box;
     }
 
     .image-container, .footer-container {
         width: 100%;
-        /* display: flex; */
-        /* justify-content: center; */
-        /* align-items: center; */
         margin: 20px 0;
     }
 
@@ -259,23 +257,22 @@
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    /* General styles */
+  
 #note-list {
     display: grid;
     gap: 10px;
 }
 
-/* Add this to your CSS file */
+/* Media queries for responsiveness */
 @media (max-width: 768px) {
-    /* Any styles you want to adjust for mobile screens */
+    
     .note {
-        /* Example styles for better mobile view */
         width: 100%;
         margin-bottom: 10px;
     }
 }
 
-/* Add this to your CSS file */
+
 #view-modal {
     display: none;
     position: fixed;
@@ -287,7 +284,7 @@
     overflow: auto;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
-    padding-top: 60px; /* Adjust this value as needed */
+    padding-top: 60px; 
 }
 
 .view-modal-content {
@@ -315,3 +312,11 @@
     
 
 
+/* Describe
+Styles ensure a clean, responsive layout. The body and containers use flexbox and shadows for depth.
+ The header features a search bar and buttons with rounded borders for a modern look. The note list 
+ grid adapts to screen sizes, with notes styled for readability. Action buttons have clear background 
+ colors for functionality. Modals are centered, with scrollable content and styled close buttons. 
+ Utility classes like the "delete all" button stand out with a red background. Media queries maintain
+  responsiveness, especially for smaller screens.
+*/

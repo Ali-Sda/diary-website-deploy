@@ -1,7 +1,9 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+    // Get the footer container element by its ID
     const footerContainer = document.getElementById("footer-container");
-
-    const footerHTML = ` <link rel="stylesheet" href="/style/footer/footer.css">
+// HTML content for the footer, including styles and structure
+    const footerHTML = ` 
+    <link rel="stylesheet" href="/style/footer/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <footer class="footer">
             <div class="footer-overlay">
@@ -34,9 +36,9 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>
         </footer>
     `;
-
+ // Set the inner HTML of the footer container to the generated footer HTML
     footerContainer.innerHTML = footerHTML;
-    
+// Append the style element to the document head (assuming 'style' variable exists)   
     document.head.appendChild(style);
 
 });
